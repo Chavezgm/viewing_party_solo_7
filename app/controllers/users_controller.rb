@@ -1,5 +1,10 @@
 class UsersController < ApplicationController
 
+   def index 
+      # require 'pry'; binding.pry
+      @user = User.find(params[:user_id])
+   end
+
    def new
       @user = User.new
    end
@@ -24,8 +29,12 @@ class UsersController < ApplicationController
 
 private
 
+#   def user_params
+#       params.require(:user).permit(:name, :email)
+#   end
+
   def user_params
-      params.require(:user).permit(:name, :email)
+      params.permit(:name, :email)
   end
 
 end
