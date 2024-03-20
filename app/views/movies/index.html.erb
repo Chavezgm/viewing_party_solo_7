@@ -1,0 +1,8 @@
+<h2>Top rated movies</h2>
+
+<% @movies.each do |movie| %>
+
+ <p>Title: <%= link_to movie[:title], "users/#{@user}/movies/#{movie}" %></p>
+ <p>Vote Average: <%= movie[:vote_average] %></p>
+
+ <% end %>
