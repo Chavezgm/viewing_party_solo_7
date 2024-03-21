@@ -13,3 +13,14 @@ class MoviesController < ApplicationController
 
   end
 end
+
+
+# def index
+  # @user = User.find(params[:user_id])
+  # movie_facade = MovieFacade.new
+  
+  # @movies = if params[:title].nil? 
+  #   movie_facade.top_rated_movies
+  # else 
+  #   movie_facade.search_by_title(params[:title])
+  # end
