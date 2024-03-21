@@ -26,9 +26,21 @@ describe MovieService do
   it 'has a search by title', :vcr do
     title = "Grown ups"
     search_results = MovieService.new.search_by_title(title)
-    # require 'pry'; binding.pry
-
     expect(search_results).to be_a Hash
+    expect(search_results[:results]).to be_an Array
+    
+    # require 'pry'; binding.pry
+    movie_data = search_results[:results].first
+
+
+    expect(movie_data).to have_key :original_title
+    expect(movie_data[:original_title]).to be_a(String)
+
+    expect(movie_data).to have_key :overview
+    expect(movie_data[:overview]).to be_a(String)
+
+    expect(movie_data).to have_key :id
+    expect(movie_data[:id]).to be_a(Integer)
 
   end
 end
