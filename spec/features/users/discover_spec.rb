@@ -60,7 +60,7 @@ RSpec.describe "Discover movies" do
 
 
       expect(current_path).to eq("/users/#{user.id}/movies")
-        # save_and_open_page
+      # save_and_open_page
 
       expect(page).to have_link('The Shawshank Redemption')
 

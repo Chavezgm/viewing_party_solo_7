@@ -8,6 +8,12 @@ class MovieFacade
   def self.search_by_title(title)
     MovieService.new.search_by_title(title)[:results]
   end
+
+  def self.movie_details(movie_id)
+    MovieService.new.movie_details(movie_id)
+  end
+
+
 end
 
 # def initialize

@@ -12,7 +12,21 @@ class MoviesController < ApplicationController
     # require 'pry'; binding.pry
 
   end
+
+  def show 
+
+    @user = User.find(params[:user_id])
+    @movie = MovieFacade.movie_details(params[:id])
+    # require 'pry'; binding.pry
+    # need the user ID and the movie ID for the button 
+  end
 end
+
+
+
+
+
+
 
 
 # def index
