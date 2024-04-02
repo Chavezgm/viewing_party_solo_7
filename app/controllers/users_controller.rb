@@ -13,28 +13,45 @@ class UsersController < ApplicationController
       @user = User.find(params[:id])
    end
 
-   def create
-      user = User.new(user_params)
-      if user.save
-         flash[:success] = 'Successfully Created New User'
-         redirect_to user_path(user)
+
+   def create 
+      # require 'pry'; binding.pry
+      user = user_params
+
+      user[:name] = user[:name].downcase
+      new_user = User.create(user)
+      if new_user.save
+         flash[:success] = "Welcome, #{new_user.name} you have now been registered!"
+         redirect_to user_path(new_user)
       else
-         flash[:error] = "#{error_message(user.errors)}"
+         flash[:error] = "#{error_message(new_user.errors)}"
          redirect_to register_user_path
       end   
    end
 
+   def login_form
+   end
+
+   def login_user
+      # require 'pry'; binding.pry
+      user =  User.find_by(email: params[:email])
+      if user.authenticate(params[:password])
+         # if user.password == params[:password]
+         flash[:success] = "Welcome, #{user.name}"
+         redirect_to user_path(user)
+      else 
+         flash[:error] = "You entered Incorrect Credentials"
+         render :login_form
+         # require 'pry'; binding.pry
+      end 
+   end
 
 
 
 private
 
   def user_params
-      params.require(:user).permit(:name, :email)
+      params.require(:user).permit(:name, :email, :password, :password_confirmation)
   end
-
-   #   def user_params
-   #       params.permit(:name, :email)
-   #   end
 
 end
