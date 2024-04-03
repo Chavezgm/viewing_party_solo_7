@@ -71,7 +71,7 @@ RSpec.describe "Logging In happy path" do
   
       # Visit the login page again
       visit login_path
-  
+      save_and_open_page
       # Expect the location field to be pre-filled with the previously entered location
       expect(find_field('Location').value).to eq "Denver, CO"
     
