@@ -1,6 +1,6 @@
 class MovieFacade
 
-  def self.top_rated_movies
+  def top_rated_movies
     MovieService.new.top_rated_movies[:results]
     # require 'pry'; binding.pry
   end

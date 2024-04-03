@@ -40,5 +40,43 @@ RSpec.describe "Logging In happy path" do
     expect(page).to have_content("You entered Incorrect Credentials")
   end
 
+  describe 'login page Part #1' do
+    it 'has a cookie implemented' do
+      user = User.create(name: "Test User", email: "test@example.com", password: "password")
+
+      # Visit the login page
+      visit login_path
+  
+      # Fill in login form
+      # save_and_open_page
+      fill_in "Email", with: user.email
+      fill_in "Password", with: "password"
+      fill_in "Location", with: "Denver, CO"
+      
+      # Click on the login button
+      click_button "Log In"
+      
+      # save_and_open_page
+      # Expect to be redirected to the user's landing page
+      expect(page).to have_current_path(user_path(user.id))
+  
+      # Expect to see the entered location on the landing page
+      expect(page).to have_content("Denver, CO")
+  
+      # Log out
+      click_link "Log out"
+  
+      # Expect to be redirected to the login page after logout
+      expect(page).to have_current_path(login_path)
+  
+      # Visit the login page again
+      visit login_path
+  
+      # Expect the location field to be pre-filled with the previously entered location
+      expect(find_field('Location').value).to eq "Denver, CO"
+    
+    end
+  end
+
 
 end 

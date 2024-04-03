@@ -1,0 +1,70 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.themoviedb.org/3/search/movie?api_key=FILTERED_KEY&include_adult=false&language=en-US&page=1&query=The%20Shawshank%20Redemption
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.9.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json;charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Date:
+      - Mon, 01 Apr 2024 18:04:39 GMT
+      Server:
+      - openresty
+      Cache-Control:
+      - public, max-age=6521
+      X-Memc:
+      - HIT
+      X-Memc-Key:
+      - 6463ec150bedf71e558b17c703e30526
+      X-Memc-Age:
+      - '16296'
+      X-Memc-Expires:
+      - '6521'
+      Etag:
+      - W/"f586cd92dfff3d57eb248cd42f5b63c6"
+      Vary:
+      - Accept-Encoding
+      - Origin
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 21d788b44c2b3d335a275c07a54548b6.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - DEN52-P3
+      Alt-Svc:
+      - h3=":443"; ma=86400
+      X-Amz-Cf-Id:
+      - DUpb0uvlYgTAnyNwXGaFVtWBaPRGxOzIcEcGR3fxqfng0Fy20wxpDQ==
+    body:
+      encoding: ASCII-8BIT
+      string: '{"page":1,"results":[{"adult":false,"backdrop_path":"/kXfqcdQKsToO0OUXHcrrNCHDBzO.jpg","genre_ids":[18,80],"id":278,"original_language":"en","original_title":"The
+        Shawshank Redemption","overview":"Framed in the 1940s for the double murder
+        of his wife and her lover, upstanding banker Andy Dufresne begins a new life
+        at the Shawshank prison, where he puts his accounting skills to work for an
+        amoral warden. During his long stretch in prison, Dufresne comes to be admired
+        by the other inmates -- including an older prisoner named Red -- for his integrity
+        and unquenchable sense of hope.","popularity":156.165,"poster_path":"/9cqNxx0GxF0bflZmeSMuL5tnGzr.jpg","release_date":"1994-09-23","title":"The
+        Shawshank Redemption","video":false,"vote_average":8.706,"vote_count":25880},{"adult":false,"backdrop_path":null,"genre_ids":[],"id":897459,"original_language":"en","original_title":"Hope
+        Springs Eternal: A Look Back at The Shawshank Redemption","overview":"Documentary
+        about the movie.","popularity":2.744,"poster_path":"/v4wcS8XwUn5zl57rYRMzMnKahmt.jpg","release_date":"2004-06-25","title":"Hope
+        Springs Eternal: A Look Back at The Shawshank Redemption","video":false,"vote_average":7.4,"vote_count":5}],"total_pages":1,"total_results":2}'
+  recorded_at: Mon, 01 Apr 2024 18:04:39 GMT
+recorded_with: VCR 6.2.0

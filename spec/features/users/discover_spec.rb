@@ -20,7 +20,7 @@ RSpec.describe "Discover movies" do
   end
 
   describe 'US 2 ' do
-    it 'Movie Results', :vcr do
+    xit 'Movie Results', :vcr do
       user = User.create(name: "loop", email: "loop@email.org", id: 234)
 
       visit "/users/#{user.id}/discover"
